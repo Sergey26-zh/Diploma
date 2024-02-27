@@ -10,3 +10,4 @@ CREATE TABLE post (
                       created_at timestamptz DEFAULT current_timestamp,
                       updated_at timestamptz DEFAULT current_timestamp
 );
+

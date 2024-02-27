@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/init.sql
+  - include:
+      file: db/changelog/changeset/drop_init.sql
+  - include:
+      file: db/changelog/changeset/V001_project.sql
