@@ -21,4 +21,6 @@ public class ProjectController {
     public ResponseEntity<ProjectDto> createProject(@RequestBody ProjectDto projectDto) {
         ProjectDto createdProject = projectService.create(projectDto);
         return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
-    }}
+    }
+
+}

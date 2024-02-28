@@ -46,4 +46,8 @@ public class Project {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private User admin;
 }
