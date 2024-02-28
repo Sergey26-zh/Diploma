@@ -31,10 +31,10 @@ public class Project {
     @Column(name = "location", length = 128, nullable = false)
     private String location;
 
-    @Column(name = "start")
+    @Column(name = "start_date")
     private LocalDate startDate;
 
-    @Column(name = "end")
+    @Column(name = "end_date")
     private LocalDate endDate;
 
     @CreationTimestamp
