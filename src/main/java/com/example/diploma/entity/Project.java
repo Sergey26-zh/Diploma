@@ -47,7 +47,7 @@ public class Project {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "admin_id")
-    private User admin;
+    private User admin;*/
 }

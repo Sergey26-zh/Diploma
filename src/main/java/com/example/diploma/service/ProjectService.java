@@ -4,13 +4,8 @@ import com.example.diploma.dto.ProjectDto;
 import com.example.diploma.entity.Project;
 import com.example.diploma.mapper.ProjectMapper;
 import com.example.diploma.repository.ProjectRepository;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.Cache;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.internal.SessionFactoryImpl;
 import org.springframework.stereotype.Service;
 
 @Service

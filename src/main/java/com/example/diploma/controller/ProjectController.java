@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProjectController {
     private final ProjectService projectService;
 
-    @PostMapping()
-    public ResponseEntity<ProjectDto> createProject(@RequestBody ProjectDto projectDto) {
+    @PostMapping
+    public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto projectDto) {
         ProjectDto createdProject = projectService.create(projectDto);
         return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
     }

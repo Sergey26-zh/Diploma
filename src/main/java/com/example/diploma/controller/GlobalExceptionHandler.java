@@ -25,4 +25,12 @@ public class GlobalExceptionHandler {
         });
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<Object> handleCustomException(RuntimeException ex) {
+        // Ваша логика обработки пользовательского исключения
+        String errorMessage = "Произошла ошибка при обработке запроса: " + ex.getMessage();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
+    }
 }
