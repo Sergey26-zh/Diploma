@@ -4,10 +4,4 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/V002_user.sql
   - include:
-      file: db/changelog/changeset/V003_role.sql
-  - include:
-      file: db/changelog/changeset/V004_insert_role.sql
-  - include:
-      file: db/changelog/changeset/V005_alert_project.sql
-  - include:
       file: db/changelog/changeset/V006_project_member.sql

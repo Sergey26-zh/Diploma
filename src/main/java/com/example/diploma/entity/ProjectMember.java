@@ -25,7 +25,6 @@ public class ProjectMember {
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @Column(name = "roles")
+    private String roles;
 }

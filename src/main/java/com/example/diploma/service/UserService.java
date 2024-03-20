@@ -6,7 +6,7 @@ import com.example.diploma.exception.UserAlreadyExistsException;
 import com.example.diploma.mapper.UserMapper;
 import com.example.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,25 +15,25 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public RegistrationUserDto registration(RegistrationUserDto registrationUserDto){
-        if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
-            throw new IllegalArgumentException("Password mismatch");
-        }
-
         if (userRepository.existsUserByEmail(registrationUserDto.getEmail())) {
-            throw new UserAlreadyExistsException("A user with this email already exists");
+            throw new UserAlreadyExistsException(String.format("User with email %s Already Exists",
+                    registrationUserDto.getEmail()));
         }
 
-        String encodedPassword = encodePassword(registrationUserDto.getPassword());
-        registrationUserDto.setPassword(encodedPassword);
+        if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
+            throw new RuntimeException("Password is not equals");
+        }
 
-        User user = userRepository.save(userMapper.toEntity(registrationUserDto));
+        String encodedPassword = passwordEncoder.encode(registrationUserDto.getPassword());
+        User user = userMapper.toEntity(registrationUserDto);
+        user.setPassword(encodedPassword);
+        user.setRoles("ROLE_USER");
+        userRepository.save(user);
+
         return userMapper.toDto(user);
-    }
-
-    private String encodePassword(String password) {
-        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 }

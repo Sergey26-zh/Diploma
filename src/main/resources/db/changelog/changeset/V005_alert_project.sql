@@ -1,2 +1,0 @@
-ALTER TABLE project
-ADD COLUMN admin_id BIGSERIAL;

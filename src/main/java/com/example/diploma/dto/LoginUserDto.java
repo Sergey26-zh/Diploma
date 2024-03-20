@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoginUserDto {
     @NotBlank
-    @Email(message = "Invalid email format")
-    private String email;
+    private String userName;
 
     @NotBlank
     private String password;

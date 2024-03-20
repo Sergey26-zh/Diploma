@@ -15,6 +15,9 @@ import java.time.LocalDate;
 @Data
 public class UserDto {
     @NotBlank
+    private String userName;
+
+    @NotBlank
     private String firstName;
 
     @NotBlank
