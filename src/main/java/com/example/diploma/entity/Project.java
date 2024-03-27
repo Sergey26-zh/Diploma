@@ -28,22 +28,14 @@ public class Project {
     @Column(name = "description", length = 512, nullable = false)
     private String description;
 
-    @Column(name = "location", length = 128, nullable = false)
-    private String location;
-
-    @Column(name = "start_date")
-    private LocalDate startDate;
-
-    @Column(name = "end_date")
-    private LocalDate endDate;
-
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @UpdateTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "unique_code", length = 8, nullable = false)
+    private String uniqueCode;
+
+    @Column(name = "admin_id")
+    private Long adminId;
 }
