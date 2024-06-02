@@ -19,4 +19,13 @@ public class ProjectService {
         Project project = projectRepository.save(projectMapper.toEntity(projectDto));
         return projectMapper.toDto(project);
     }
+
+    public void delete(Long id) {
+        if (projectRepository.existsById(id)) {
+            projectRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Project is not exist");
+        }
+
+    }
 }

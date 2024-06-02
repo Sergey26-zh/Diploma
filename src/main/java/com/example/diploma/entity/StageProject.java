@@ -6,25 +6,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "project_member")
+@Table(name = "stage_project")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class ProjectMember {
+public class StageProject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long projectMemberId;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Column(name = "end_date")
+    private LocalDate endDate;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
-
-    @Column(name = "roles")
-    private String roles;
 }

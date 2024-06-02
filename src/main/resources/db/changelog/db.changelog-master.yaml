@@ -4,6 +4,4 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/V002_user.sql
   - include:
-      file: db/changelog/changeset/V006_project_member.sql
-  - include:
-      file: db/changelog/changeset/V007_alert_project.sql
+      file: db/changelog/changeset/V003_stage_project.sql

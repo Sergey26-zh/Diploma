@@ -6,5 +6,6 @@ CREATE TABLE project (
     start_date DATE,
     "end_date" DATE,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    "user_id" BIGSERIAL
 );

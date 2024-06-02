@@ -18,15 +18,9 @@ import org.springframework.web.servlet.view.RedirectView;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/welcome")
-    public String welcome(){
-        return "Welcome to the unprotected page";
-    }
-
-    @GetMapping("/hello")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
-    public String hello(){
-        return "hello to the unprotected page";
+    @GetMapping("/registration")
+    public String showRegistrationForm() {
+        return "registration"; // возвращаем имя HTML-шаблона (без расширения)
     }
 
     @PostMapping("/registration")
