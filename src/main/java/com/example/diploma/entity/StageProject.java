@@ -28,7 +28,5 @@ public class StageProject {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    private Project project;
+    private Long project;
 }

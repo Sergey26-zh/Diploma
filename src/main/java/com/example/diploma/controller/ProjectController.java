@@ -20,13 +20,8 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @PostMapping("/create")
-    public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto projectDto, Principal principal) {
-        String user = principal.getName();
+    public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto projectDto) {
         ProjectDto createdProject = projectService.create(projectDto);
-        Long userId = Long.parseLong(user);
-        createdProject.setUserId(userId);
         return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
     }
-
-
 }

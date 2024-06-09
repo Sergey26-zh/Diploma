@@ -27,5 +27,4 @@ public class ProjectDto {
 
     @NotNull(message = "Set the end date")
     private LocalDate endDate;
-    private Long userId;
 }
